@@ -3,4 +3,4 @@ author: Zhao H.Q.
 
 This repository is my study space for everything
 
-Physics Rockets-knowlodge and Math
+Physics and Math
