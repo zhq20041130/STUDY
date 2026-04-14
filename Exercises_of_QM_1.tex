@@ -1,0 +1,150 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usepackage{geometry}
+\usetikzlibrary{calc}
+\geometry{a4paper,margin=2.5cm}
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+
+% 背景装饰
+\begin{tikzpicture}[remember picture,overlay]
+\draw[blue!50, line width=6pt]
+    ($(current page.north west)+(1cm,-1cm)$) --
+    ($(current page.north east)+(-1cm,-1cm)$);
+
+\draw[blue!30, line width=4pt]
+    ($(current page.south west)+(1cm,1cm)$) --
+    ($(current page.south east)+(-1cm,1cm)$);
+\end{tikzpicture}
+
+\vspace*{4cm}
+
+{\Huge\bfseries Classical Problems of QM \par}
+
+\vspace{1.5cm}
+
+{\Large —— 量子力学经典习题 —— \par}
+
+\vspace{3cm}
+
+{\Large \textbf{Author: Zhao H.Q.} \par}
+
+\vspace{0.5cm}
+
+{\large \today \par}
+
+\vfill
+
+{\large \textit{Quantum Mechanics / Spin Dynamics / Larmor Precession}}
+
+\end{titlepage}
+
+\clearpage
+
+
+
+
+
+
+
+
+
+例题1.\\
+自旋为$\frac{1}{2}$体系随时间的演化
+设一粒子一开始处于$S_x=1/2$的本征态，现在加入沿Z轴的磁场$\overrightarrow{B}=B\cdot \overrightarrow{e_z}$\\
+(1):请问任意t时刻粒子处于什么状态？\\
+(2):请问任意t时刻处于$S_x=1/2$状态的概率是多少？$S_x=-1/2$呢？\\
+(3):任意t时刻的$<\hat{S_x}>$是多少？$\hat{<S_y>}$和$\hat{<S_z>}$呢？\\
+
+解:
+粒子一开始处于$S_x=\hbar/2$状态，因此：
+\[\psi(0) = |+> \]\\
+要求t时刻，即:
+\[\psi(t) = \hat{U}(t) \psi(0) = e^{\frac{i\hat{H}t}{\hbar}} \psi(0) \]
+其中
+\[\hat{H} = -\hat{\overrightarrow{\mu}} \cdot \overrightarrow{B} = -\hat{\mu_s} B = -\gamma_s \hat{S_z} B\]
+其中$\gamma_s$为旋磁比
+
+带入上式：
+\[\psi(t) = e^{\frac{i \gamma_s \hat{S}_z B}{\hbar}} \cdot|+> = e^{\frac{i \gamma_s \hat{S}_z B}{\hbar}} 
+\cdot (\frac{1}{\sqrt{2}} |\uparrow>) + \frac{1}{\sqrt{2}} |\downarrow> 
+= e^{\frac{i \gamma_s \frac{\hbar}{2} B}{\hbar}} \cdot \frac{1}{\sqrt{2}} |\uparrow>
++e^{\frac{i \gamma_s -\frac{\hbar}{2} B}{\hbar}} \cdot \frac{1}{\sqrt{2}} |\downarrow>\]
+
+其中：
+\[
+    |\uparrow> = \begin{pmatrix}
+1 \\
+0 
+\end{pmatrix},
+    |\downarrow> = \begin{pmatrix}
+0 \\
+1 
+\end{pmatrix}
+\],在Z表象
+
+于是我们可以得到：
+
+
+\[
+    \psi(t) = \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+e^{\frac{i \gamma_s \frac{\hbar}{2} B}{\hbar}} \\
+e^{\frac{i \gamma_s -\frac{\hbar}{2} B}{\hbar}} 
+\end{pmatrix}
+    =
+    \frac{1}{\sqrt{2}} 
+    \begin{pmatrix}
+e^{i \omega t} \\
+e^{-i \omega t} 
+\end{pmatrix}
+\]\\
+
+(2):t时刻处于$S_x=\frac{\hbar}{2}$和$-\frac{\hbar}{2}$的概率
+\[  
+    P_{\frac{\hbar}{2}} = | <+|\psi(t)> |^2
+    = [\frac{1}{\sqrt{2}}(1,1)\cdot \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+e^{i \omega t} \\
+e^{-i \omega t} 
+\end{pmatrix}]^2
+    =cos^2(\omega t)
+\]
+
+注：其中用了欧拉公式：$e^{i\omega}=cos\omega + isin\omega$
+
+与上式同理可求得
+\[
+    P_{\frac{\hbar}{2}}=sin^2(\omega t)
+\]
+
+(3):t时刻$S_z,S_x,S_y$的平均值：
+
+\[
+ <\hat{S}_x> = < \psi(t)| \hat{S}_x |\psi(t) >
+ = \frac{1}{\sqrt{2}}(e^{i \omega t},e^{-i \omega t}) \cdot \frac{\hbar}{2} 
+ \begin{pmatrix}
+  0&1 \\
+  1&0
+\end{pmatrix}
+ \frac{1}{\sqrt{2}}
+  \begin{pmatrix}
+   e^{i \omega t}\\
+  e^{-i \omega t}
+\end{pmatrix}
+    = \frac{\hbar}{2} cos(2\omega t)
+\]\\
+同理可得：
+
+\[
+    <\hat{S}_y> = \frac{\hbar}{2} sin(2\omega t)
+\]
+\[<\hat{S}_z> = 0\]
+
+相当于粒子在XoY平面上做Lammor进动
+\end{document}
