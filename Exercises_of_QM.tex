@@ -4,6 +4,15 @@
 \usepackage{geometry}
 \usetikzlibrary{calc}
 \geometry{a4paper,margin=2.5cm}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+
+
+
+
 
 
 \begin{document}
@@ -146,5 +155,150 @@ e^{-i \omega t}
 \]
 \[<\hat{S}_z> = 0\]
 
-相当于粒子在XoY平面上做Lammor进动
+相当于粒子在XoY平面上做Lammor进动\\
+
+
+
+
+
+
+例题2.\\
+一个质量为$\mu$的粒子在一维势场中：
+
+\[
+V(x)=
+\begin{cases}
+0, & |x| > a \\
+- V_0, & |x| < a
+\end{cases}
+\]
+
+运动，其中$V_0>0$，求存在且仅存在一个解的条件
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+            % 坐标轴
+    \draw[->] (-4.5,0) -- (4.8,0) node[right] {$x$};
+    \draw[->] (0,-3.5) -- (0,1.5) node[above] {$V(x)$};
+
+    % 势井（井内为 -V0）
+    \draw[thick]
+        (-4,0) -- (-1.5,0)
+        -- (-1.5,-2.5) -- (1.5,-2.5)
+        -- (1.5,0) -- (4,0);
+
+    % 标注 0 势能
+    \node[left] at (0,0) {$0$};
+
+    % 标注 -V0
+    \draw[dashed] (-4.2,-2.5) -- (4.2,-2.5);
+    \node[left] at (0,-2.5) {$-V_0$};
+
+    % 边界
+    \draw[dashed] (-1.5,0) -- (-1.5,-2.5);
+    \draw[dashed] (1.5,0) -- (1.5,-2.5);
+    \node[above] at (-1.5,0) {$-a$};
+    \node[above] at (1.5,0) {$a$};
+
+    % 区域标注
+    \node at (0,-1.2) {势井区域};
+    \end{tikzpicture}
+    \caption{有限深势井示意图}
+\end{figure}
+
+将上式带入定态薛定谔方程：\\
+\[
+V(x)=
+\begin{cases}
+-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x) =E \psi(x) , & |x| > a \\
+-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x) =(E+V_0)\psi(x)& |x| < a
+\end{cases}
+\]
+
+其解为：
+\[
+V(x)=
+\begin{cases}
+\psi_1(x)=C_1e^{\sqrt{\frac{-2mE}{\hbar^2}}x}  + C_2e^{-\sqrt{\frac{-2mE}{\hbar^2}}x}  , & |x| > a \\
+\psi_2(x)=C_3e^{\sqrt{\frac{-2m(E+V_0)}{\hbar^2}}x}  + C_4e^{-\sqrt{\frac{-2m(E+V_0)}{\hbar^2}}x} & |x| < a
+\end{cases}
+\]
+
+\[
+    \rightarrow
+    \begin{cases}
+\psi_1(x)=C_1e^{\alpha x}  + C_2e^{-\alpha x}  , & |x| > a \\
+\psi_2(x)=C_3e^{i \beta x}  + C_4e^{-i\beta x} & |x| < a
+\end{cases}
+\]
+
+\[
+    \rightarrow\\
+    \psi_2(x) = C_5cos(\beta x) + C_6sin(\beta x) , |x|\le a
+\]\\
+
+这里我们先不带入边界条件求解，我们注意到势场是偶函数，则$\psi(x)$具有确定的宇称(奇偶不能确定)，下面我们分情况讨论： \\
+(1):偶宇称：\\
+有边界条件：$\psi(x)$在边界处连续，一阶导数在边界处(非奇异点)也连续：\\
+\[
+    \begin{cases}
+        C_1 = C_2 =A \\
+        A e^{\alpha x},x>a\\
+        A e^{\alpha x},x<-a\\
+        C_5 = B\\
+        B cos(\beta x),|x|\le a
+    \end{cases}
+\]
+联立求解我们可以得到：
+\[
+    \xi tan(\xi) = \eta
+\]
+其中：
+\[
+    \begin{aligned}
+        \xi = \beta a\\
+        \eta = \alpha a
+    \end{aligned}
+\]
+\\
+下面我们来考虑奇宇称的情况：
+(2):奇宇称：\\
+有边界条件：$\psi(x)$在边界处连续，一阶导数在边界处(非奇异点)也连续：\\
+\[
+    \begin{cases}
+        C_1 = -C_2 =A' \\
+        A' e^{\alpha x},x>a\\
+        -A' e^{\alpha x},x<-a\\
+        C_6 = B'\\
+        B' sin(\beta x),|x|\le a
+    \end{cases}
+\]
+联立求解我们可以得到：
+\[
+    \xi cot(\xi) = -\eta
+\]
+这里根据$\xi$和$\eta$的定义，有：
+\[
+    \xi^2 + \eta^2 = \frac{2m a^2 V_0}{\hbar^2} = Q^2
+\]
+也就是说$\xi$和$\eta$
+应该同时满足超越方程和圆方程：
+
+现在的结果已经比较清晰了，我们只要找到圆和超越方程对应图形的交点即可知道有几个束缚态，下面是示意图：
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{1.png}
+    \caption{示意图(蓝色为tan，绿色为cot)}
+    \label{fig:example}
+\end{figure}
+
+\newpage
+结果，当：
+\[
+    \sqrt{\frac{2ma^2 V_0}{\hbar^2}} < \frac{\pi}{2}
+\]
+时，仅有一个束缚态
 \end{document}
