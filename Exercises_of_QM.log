@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.4.14)  14 APR 2026 22:42
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex 2026.4.14)  16 APR 2026 21:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/CODE/latex/STUDY/Exercises_of_QM_1.tex
-(d:/CODE/latex/STUDY/Exercises_of_QM_1.tex
+**d:/CODE/latex/STUDY/Exercises_of_QM.tex
+(d:/CODE/latex/STUDY/Exercises_of_QM.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
 (D:\MikTeX\tex/latex/ctex\ctexart.cls
@@ -867,8 +867,8 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 (D:\MikTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibrarycalc.code.te
 x
 File: tikzlibrarycalc.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-) (Exercises_of_QM_1.aux)
-\openout1 = `Exercises_of_QM_1.aux'.
+) (Exercises_of_QM.aux)
+\openout1 = `Exercises_of_QM.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
@@ -1003,7 +1003,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
 [1
 
-] [2] (Exercises_of_QM_1.aux)
+] [2] (Exercises_of_QM.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2022/07/14>
@@ -1011,11 +1011,11 @@ L3 programming layer <2022/07/14>
  ) 
 Here is how much of TeX's memory you used:
  19298 strings out of 402806
- 451114 string characters out of 5452359
- 859574 words of memory out of 5000000
+ 451088 string characters out of 5452359
+ 859572 words of memory out of 5000000
  47884 multiletter control sequences out of 15000+600000
  632402 words of font info for 79 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 102i,15n,111p,448b,411s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,15n,111p,446b,411s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Exercises_of_QM_1.pdf (3 pages).
+Output written on Exercises_of_QM.pdf (3 pages).
