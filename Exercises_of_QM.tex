@@ -290,7 +290,7 @@ V(x)=
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.6\textwidth]{1.png}
+    \includegraphics[width=0.6\textwidth]{figs/1.png}
     \caption{示意图(蓝色为tan，绿色为cot)}
     \label{fig:example}
 \end{figure}
@@ -304,5 +304,81 @@ V(x)=
 
 
 例题3.\\
-你好
+已知电子某一时刻的波函数为$\Psi(r,t)=\Psi_1(r,t)\chi_+(S_z)+\Psi_2(r,t)\chi_-(S_z)$,其中$\chi_+(S_z)$与$\chi_-(S_z)$
+分别是电子自旋沿正z轴与负z轴的归一化波函数.试写出电子自旋沿正z轴且在薄壳(r,r+dr)内出现的概率$P_1$;电子自旋沿负z轴且在$(\theta,\phi)$方向$d\Omega=sin\theta d\theta d\phi$
+立体角内出现的概率$P_2$;电子自旋沿正z轴的概率$P_3$\\
+
+在$\hat{S}_z$表象下:
+\[
+    \chi_+=
+    \begin{bmatrix}
+        1\\
+        0
+    \end{bmatrix}
+     \chi_-=
+    \begin{bmatrix}
+        0\\
+        1
+    \end{bmatrix}
+\]
+
+考虑自旋的波函数,可以将其写成旋量形式:
+\[
+    \psi(r,t)=
+    \begin{bmatrix}
+        \psi_1(r,t)\\
+        \psi_2(r,t)
+    \end{bmatrix}
+\]
+其中$\psi_1(r,t)$代表自旋向上部分的空间波函数,然后将其归一化,使得:\\
+
+\[
+    \int_{-\infty}^{\infty} \tilde{\psi}(r,t)^*\cdot \tilde{\psi}(r,t) = 1
+\]
+于是我们可以得到：
+
+\[
+    \tilde{\psi}(r,t) = N \cdot 
+    \begin{bmatrix}
+        \psi_1(r,t)\\
+        \psi_2(r,t)
+    \end{bmatrix}
+\]
+
+其中:
+\[
+    N = \frac{1}{\sqrt{  \int_{-\infty}^{\infty}|\psi_1|^2 d\tau + \int_{-\infty}^{\infty}|\psi_2|^2 d\tau}}
+\]
+因此,归一化波函数的模方表示概率,则电子自旋沿Z轴向上的概率为:
+\[
+    P_{\uparrow} =  \int_{-\infty}^{\infty}|N \psi_1|^2 d\tau = \frac{ \int_{-\infty}^{\infty}|\psi_1|^2 d\tau}{ \int_{-\infty}^{\infty}|\psi_1|^2 d\tau + \int_{-\infty}^{\infty}|\psi_2|^2 d\tau }
+\]
+
+\[
+    P_{\downarrow} =  \int_{-\infty}^{\infty}|N \psi_2|^2 d\tau = \frac{ \int_{-\infty}^{\infty}|\psi_2|^2 d\tau}{ \int_{-\infty}^{\infty}|\psi_1|^2 d\tau + \int_{-\infty}^{\infty}|\psi_2|^2 d\tau }
+\]
+\\
+下面我们求在(r,r+dr)范围内,沿着Z轴向上的概率.\\
+\\
+注意这里有一个易错点;并不能用概率公式:$P(A \cap B)=P(A)\cdot P(B)$,因为此时"沿着Z轴向上"和"在某处找到粒子"这两件事并不独立,相当于知道"沿着Z轴向上"时
+,已经做了一次挑选(或测量),因此这里我们的波函数应该落入归一化后的$\psi_1$\\
+
+(1):
+\[
+    P_1 = P_{\uparrow} \cdot P(r \to r+dr)
+    =P_{\uparrow} \cdot \int_{\Omega} \frac{|\psi_1|^2 d\tau}{  \int_{-\infty}^{\infty}|\psi_1|^2 d\tau }
+    =P_{\uparrow} \cdot r^2dr \int_{0}^{\pi}\int_{2\pi}^{0}\frac{|\psi_1|^2 sin\theta d\theta d\phi}{\int_{-\infty}^{\infty}|\psi_1|^2 d\tau}
+\]
+
+(2):
+\[
+    P_1 = P_{\downarrow} \cdot P(\theta,\phi)
+    =P_{\downarrow} \cdot \int_{-\infty}^{\infty} \frac{|\psi_2|^2 d\tau}{  \int_{-\infty}^{\infty}|\psi_2|^2 d\tau }
+    =P_{\downarrow} \cdot sin\theta d\theta d\psi \int_{-\infty}^{\infty}\frac{|\psi_1|^2 r^2dr}{\int_{-\infty}^{\infty}|\psi_2|^2 d\tau}
+\]
+
+(3):
+\[
+    P_3=P_{\uparrow}
+\]
 \end{document}
