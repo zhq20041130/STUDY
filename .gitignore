@@ -1,0 +1,23 @@
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# bibliography
+*.bbl
+*.blg
+
+# beamer
+*.nav
+*.snm
+*.vrb
+
+# latexmk
+*.run.xml
+
+# VSCode
+.vscode/
