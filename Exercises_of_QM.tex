@@ -49,7 +49,7 @@
 
 \vfill
 
-{\large \textit{Quantum Mechanics / Spin Dynamics / Larmor Precession}}
+{\large \textit{Quantum Mechanics}}
 
 \end{titlepage}
 
@@ -380,9 +380,85 @@ V(x)=
 (3):
 \[
     P_3=P_{\uparrow}
+\]
+\\
+
+例题4:
+\\
+三维球势阱中，某粒子在球壳中运动：
+\[
+    V(r) = 
+    \begin{cases}
+        0 & 0<r<a\\
+        \infty & r>a
+    \end{cases}
+\]
+求l=0时的本征值与本征函数：
+
+考虑到势场具有球对称性，可以取中心立场类似的CSCO$(\hat{L^2},\hat{L_z},\hat{H})$则可设本征函数：
+\[
+    \psi(r,\theta,\phi) = R(r)\cdot Y_l^m(\theta,\phi)
+\]
+
+TISE:
+\[
+    [-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial r^2}u(r) + \frac{l(l+1)\hbar^2}{2mr^2}u(r)+V(r)U(r)] = E u(r)
+\]
+由于球壳外$V(r)=\infty$,则$\psi(r,\theta,\phi)|_{r>a}=0$,我们只用考虑球壳内部的波函数(内部l=0)：
+
+\[
+    -\frac{\hbar^2}{2m} u(r) = E u(r)
+\]
+注意到这个方程与一维无限深方势阱的方程一致，边界条件：
+\[
+    \begin{cases}
+    u(0)=0\\
+    u(a)=0
+    \end{cases}
+\]
+
+边界条件也与一维无限深方势阱一致，则解与一维无限深方势阱的解形式一模一样，只需将x替换为r即可：
+\[
+    u(r) = \sqrt{\frac{2}{a}} sin\frac{n \pi r}{a} , E_n\frac{n^2 \pi^2 \hbar^2}{2ma^2}
+\]
+\[
+    R(r) = \frac{1}{r} \sqrt{\frac{2}{a}} sin\frac{n \pi r}{a}
+\]
+得到最终的总体空间波函数：
+\[
+    \psi_{n,m,l}(r,\theta ,\phi) = \frac{1}{r} \sqrt{\frac{2}{a}} sin\frac{n \pi r}{a} \cdot Y_l^m(\theta,\phi)|^{m=0}_{l=0}= \frac{1}{r \sqrt{4\pi}} \sqrt{\frac{2}{a}} sin\frac{n \pi r}{a} 
 \]\\
 
-HelloWorld
+例题5:\\
+求基态氢原子电子最可能出现的半径。\\ \\
+注：这里对于氢原子空间总体波函数的求解不做赘述，详情请见我的"量子力学随笔.pdf"\\
+
+氢原子电子空间波函数：
+\[
+    \psi_{n,l,m}(r,\theta,\phi) = \alpha_0\sum_{i=0}^{n-l-1}\frac{2^i}{i!}\frac{r^{l+1}}{a_0 n} e^{-\frac{r}{a_0 n}} Y_l^m(\theta,\phi)
+\]
+经过归一化后:
+\[
+    \psi_{100} = \frac{1}{\sqrt{\pi a_0^3}}e^{-\frac{r}{a_0}}
+\]
+
+这里注意到基态波函数与角向无关，现考虑氢原子径向概率密度:
+\[
+    \rho(r) = |\psi_{100}|^2
+\]
+在某球壳$r\rightarrow r+dr$的概率：
+
+\[
+    P_{r\rightarrow r+dr}=4\pi r^2\cdot \frac{1}{\pi a_0^3}e^{-\frac{2r}{a_0}} dr
+\]
+在概率表达式中的dr项只是个测度，除去dr的项也可以表征概率大小，令$P=P_{r\rightarrow r+dr}/dr$
+\[
+    \frac{dP}{dr} = 0
+    \rightarrow \frac{4}{a_0^3}[e^{-\frac{2r}{a_0}}\cdot 2r + (-\frac{2}{a_0})e^{-\frac{2r}{a_0}}r]=0
+\]
+解得：$r=a_0$\\
+因此$a_0$就是基态氢原子中电子最可能出现的半径，称为(第一)Bhor半径
+
 
 
 \end{document}
