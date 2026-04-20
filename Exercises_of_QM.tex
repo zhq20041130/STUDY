@@ -63,7 +63,7 @@
 
 
 
-例题1.\\
+\emph{例题1:}\\
 自旋为$\frac{1}{2}$体系随时间的演化
 设一粒子一开始处于$S_x=1/2$的本征态，现在加入沿Z轴的磁场$\overrightarrow{B}=B\cdot \overrightarrow{e_z}$\\
 (1):请问任意t时刻粒子处于什么状态？\\
@@ -162,7 +162,7 @@ e^{-i \omega t}
 
 
 
-例题2.\\
+\emph{例题2:}\\
 一个质量为$\mu$的粒子在一维势场中：
 
 \[
@@ -303,7 +303,7 @@ V(x)=
 时，仅有一个束缚态\\
 
 
-例题3.\\
+\emph{例题3:}\\
 已知电子某一时刻的波函数为$\Psi(r,t)=\Psi_1(r,t)\chi_+(S_z)+\Psi_2(r,t)\chi_-(S_z)$,其中$\chi_+(S_z)$与$\chi_-(S_z)$
 分别是电子自旋沿正z轴与负z轴的归一化波函数.试写出电子自旋沿正z轴且在薄壳(r,r+dr)内出现的概率$P_1$;电子自旋沿负z轴且在$(\theta,\phi)$方向$d\Omega=sin\theta d\theta d\phi$
 立体角内出现的概率$P_2$;电子自旋沿正z轴的概率$P_3$\\
@@ -383,7 +383,7 @@ V(x)=
 \]
 \\
 
-例题4:
+\emph{例题4:}
 \\
 三维球势阱中，某粒子在球壳中运动：
 \[
@@ -429,7 +429,7 @@ TISE:
     \psi_{n,m,l}(r,\theta ,\phi) = \frac{1}{r} \sqrt{\frac{2}{a}} sin\frac{n \pi r}{a} \cdot Y_l^m(\theta,\phi)|^{m=0}_{l=0}= \frac{1}{r \sqrt{4\pi}} \sqrt{\frac{2}{a}} sin\frac{n \pi r}{a} 
 \]\\
 
-例题5:\\
+\emph{例题5:}\\
 求基态氢原子电子最可能出现的半径。\\ \\
 注：这里对于氢原子空间总体波函数的求解不做赘述，详情请见我的"量子力学随笔.pdf"\\
 
@@ -458,5 +458,78 @@ TISE:
 \]
 解得：$r=a_0$\\
 因此$a_0$就是基态氢原子中电子最可能出现的半径，称为(第一)Bhor半径
+\\
 
+\emph{例题6:}\\
+抗磁性和朗道能级的推导。\\
+现考虑在磁场$B=B_0 \cdot \vec{e_z}$中运动的电子：
+\[
+    \hat{H} = \frac{\hat{\pi}}{2m} = \frac{(\hat{\vec{P}}-q\vec{A})^2}{2m} = \frac{(\hat{\vec{P}}+e\vec{A})^2}{2m}
+\]\\
+
+取电磁场的朗道规范
+\[
+    \begin{cases}
+        A_x = -By\\
+        A_y = 0\\
+        A_z = 0
+    \end{cases}
+\]
+则：
+\[
+    \hat{H}=\frac{1}{2m}[(\hat{P}_x-eBy)^2+\hat{p}_y^2+\hat{p}_z^2]
+\]
+
+注意到在此哈密顿量中只存在"y",没有x，z，则$[\hat{H},\hat{P}_x]=[\hat{H},\hat{P}_x]=0$
+因此我们可以取CSCO为$(\hat{H},\hat{P}_x,\hat{P}_z)$,设共同本征函数为：
+\[
+    \psi(x,y,z) = e^{\frac{i p_x x}{\hbar}} e^{\frac{i p_z z}{\hbar}}\cdot \phi(y)
+\]
+将哈密顿量和试探解带入定态薛定谔方程$\hat{H}\psi = E \psi$:
+\[
+    \frac{1}{2m}[(\hat{P}_x-eBy)^2+\hat{p}_y^2+\hat{p}_z^2]e^{\frac{i p_x x}{\hbar}} e^{\frac{i p_z z}{\hbar}}\cdot \phi(y) = E e^{\frac{i p_x x}{\hbar}} e^{\frac{i p_z z}{\hbar}}\cdot \phi(y)
+    \rightarrow
+\]
+\[
+    \frac{1}{2m}[(P_x-eBy)^2+\hat{p}_y^2]\phi(y) = (E-p_z^2)\phi(y)
+\]
+
+注意到上面的方程与一维问题中y方向的谐振子方程很相似:
+\[
+    [\frac{\hat{P}_y^2}{2m}+\frac{1}{2}m\omega^2y^2]\psi = E\psi
+\]
+我们可以令：
+\[
+    \xi = y-\frac{p_x}{eB},\omega^2 = \frac{e^2B^2}{m^2},E' = E - \frac{p_z^2}{2m}
+\]
+原方程可化为：
+\[
+    [\frac{\xi^2}{2m}+\frac{1}{2}m\omega^2\xi^2]\phi(\xi) = E'\phi(\xi)
+\]
+其解为：
+\[
+    E_n' = (n+\frac{1}{2})\hbar \omega
+\]
+
+\[
+    \phi(\xi) = N_n H_n(\alpha \xi)e^{-\frac{\alpha^2 \xi^2}{2}}
+\]
+其中$\alpha = \sqrt{\frac{eB}{\hbar}}$
+
+换回原变量：
+\[
+    E_n = (n+\frac{1}{2})\hbar \omega + \frac{p_z^2}{2m}
+\]
+\[
+    \phi(y) = N_n H_n[\alpha (y-\frac{p_x}{eB})]e^{-\frac{\alpha^2 (y-\frac{p_x}{eB})^2}{2}}
+\]
+这里的最终能量为一个一维谐振子能量加上Z方向的自由粒子能量，我们称为$\emph{朗道能级}$\\
+在经典情况下，$U = -\vec{M} \cot \vec{B}$
+\[
+    (n+\frac{1}{2})\hbar \omega + \frac{p_z^2}{2m} = -M_z B \rightarrow
+\]
+\[
+    M_z = -\frac{1}{B} [(n+\frac{1}{2})\hbar \omega + \frac{p_z^2}{2m}]
+\]
+由于这里的负号，与外磁场方向相反，这就是抗磁性的来源
 \end{document}
